@@ -15,7 +15,7 @@ Hosting: Cloudflare Pages (site + `functions/api/ai.js`), Supabase (database and
 2. **Make yourself admin**: sign in on the site once, then in SQL Editor run
    `insert into admins (user_id) select id from auth.users where email = 'YOUR EMAIL';`
 3. **public/app/config.js**: fill in the Project URL and anon public key (Project Settings > API). These are public by design. Add your Instagram link there too.
-4. **Cloudflare Pages** (dash.cloudflare.com > Workers & Pages > Create > Pages > Connect to Git): pick `claude-ai-mcp`, production branch `sastacheck`, root directory `sastacheck`.
+4. **Cloudflare Pages** (dash.cloudflare.com > Workers & Pages > Create > Pages > Connect to Git): pick this repo, production branch `main`, root directory left empty.
    Framework preset: Vite. Build command: `npm run build`. Output directory: `dist`.
    Settings > Variables and Secrets: `SUPABASE_URL`, `SUPABASE_ANON_KEY`, and secret `GEMINI_API_KEY`
    (from aistudio.google.com). Redeploy after adding them.
