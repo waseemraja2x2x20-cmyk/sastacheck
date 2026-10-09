@@ -529,6 +529,12 @@ async function loadObs(){
 if(!sb){$("#offline").hidden=false;$("#offline").textContent="SastaCheck is not connected to its database yet. Add the Supabase details to config.js.";
   $("#signinForm").addEventListener("submit",e=>{e.preventDefault();$("#signinMsg").textContent="Sign-in is not switched on yet. Please try again later."});}
 else (async()=>{
+  $("#signinForm").addEventListener("submit",async e=>{e.preventDefault();const email=$("#email").value.trim();if(!email)return;
+    $("#sendLink").disabled=true;$("#signinMsg").textContent="Sending…";
+    try{const {error}=await sb.auth.signInWithOtp({email,options:{emailRedirectTo:location.origin+"/app/"}});
+      $("#signinMsg").textContent=error?"Could not send the link: "+error.message:"Check your email and tap the link to sign in.";}
+    catch(err){$("#signinMsg").textContent="Could not reach the sign-in service. Check your connection and try again."}
+    $("#sendLink").disabled=false});
   try{
     const [{data:prods,error:e1}]=await Promise.all([sb.from("products").select("*"),loadStores()]);
     if(e1) throw e1;
@@ -545,9 +551,6 @@ else (async()=>{
   };
   const {data:{session}}=await sb.auth.getSession(); await setUser(session);
   sb.auth.onAuthStateChange((_e,sess)=>{setUser(sess);if(sess)$("#signin").hidden=true});
-  $("#signinForm").addEventListener("submit",async e=>{e.preventDefault();const email=$("#email").value.trim();if(!email)return;
-    $("#sendLink").disabled=true;const {error}=await sb.auth.signInWithOtp({email,options:{emailRedirectTo:location.origin+"/app/"}});
-    $("#signinMsg").textContent=error?"Could not send the link: "+error.message:"Check your email and tap the link to sign in.";$("#sendLink").disabled=false});
 })();
 })();
 </script>
