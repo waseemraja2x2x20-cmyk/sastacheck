@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f8f5">
+    <meta name="description" content="Compare prices from trusted stores and find the best deal on the things you love.">
+    <title>Pricewise — compare prices, shop smarter</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Pricewise home">
+        <span class="brand-mark" aria-hidden="true">p</span>
+        pricewise<span class="brand-period">.</span>
+      </a>
+      <nav class="header-links" aria-label="Main navigation">
+        <a href="#deals">Discover</a>
+        <a href="#how-it-works">How it works</a>
+      </nav>
+      <a class="header-note" href="#deals"><span aria-hidden="true">✳</span> Better buys start here</a>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> A little smarter shopping</p>
+          <h1 id="hero-title">Good finds.<br><span>Better prices.</span></h1>
+          <p class="hero-description">Compare prices from stores you trust, all in one place. Find your favorite things for less.</p>
+          <form class="search-form" role="search">
+            <label class="search-icon" for="search-input" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 4.5 4.5"></path></svg>
+            </label>
+            <input id="search-input" type="search" placeholder="Search products, brands, and more..." autocomplete="off">
+            <button type="submit">Find a deal <span aria-hidden="true">→</span></button>
+          </form>
+          <p class="search-hint">Try “headphones” or “coffee maker”</p>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="art-sparkle sparkle-one">✳</div>
+          <div class="art-sparkle sparkle-two">✦</div>
+          <div class="art-orbit orbit-one"></div>
+          <div class="art-orbit orbit-two"></div>
+          <div class="price-tag">
+            <span class="tag-hole"></span>
+            <span class="tag-label">NICE FIND</span>
+            <span class="tag-price">$49<span>.99</span></span>
+            <span class="tag-caption">and a little less</span>
+          </div>
+          <div class="art-sticker">worth<br>the look <span>↗</span></div>
+        </div>
+      </section>
+
+      <section class="deals-section" id="deals" aria-labelledby="deals-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow section-eyebrow">The good stuff</p>
+            <h2 id="deals-title">Find your next favorite</h2>
+          </div>
+          <label class="sort-control" for="sort-select">
+            <span>Sort by</span>
+            <select id="sort-select">
+              <option value="recommended">Recommended</option>
+              <option value="price">Lowest price</option>
+              <option value="savings">Biggest savings</option>
+              <option value="name">Name A–Z</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="category-row" role="group" aria-label="Filter by category">
+          <button class="category-chip active" type="button" data-category="all" aria-pressed="true">Everything <span>✳</span></button>
+          <button class="category-chip" type="button" data-category="Tech" aria-pressed="false">Tech</button>
+          <button class="category-chip" type="button" data-category="Home" aria-pressed="false">Home</button>
+          <button class="category-chip" type="button" data-category="Audio" aria-pressed="false">Audio</button>
+          <button class="category-chip" type="button" data-category="Wellness" aria-pressed="false">Wellness</button>
+        </div>
+
+        <div class="results-line">
+          <p id="results-count" aria-live="polite"></p>
+          <p class="updated-note"><span aria-hidden="true">●</span> Prices checked today</p>
+        </div>
+        <div class="product-grid" id="product-grid"></div>
+        <div class="empty-state" id="empty-state" hidden>
+          <span aria-hidden="true">⌕</span>
+          <h3>No matches just yet</h3>
+          <p>Try another search or choose a different category.</p>
+          <button type="button" id="clear-filters">Show me everything</button>
+        </div>
+      </section>
+
+      <section class="how-section" id="how-it-works">
+        <div class="how-icon" aria-hidden="true">↗</div>
+        <div>
+          <p class="eyebrow">Shopping, simplified</p>
+          <h2>One search. A bunch of better options.</h2>
+        </div>
+        <p>We line up prices from different stores, so you can spend less time hunting and more time enjoying the find.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="#"><span class="brand-mark" aria-hidden="true">p</span>pricewise<span class="brand-period">.</span></a>
+      <p>Good choices, good prices. Happy shopping.</p>
+      <span>Prices are examples and may change at the retailer.</span>
+    </footer>
+  </body>
+</html>
